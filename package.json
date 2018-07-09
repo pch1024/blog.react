@@ -1,6 +1,6 @@
 {
-  "name": "Awesome",
-  "description": "Awesome",
+  "name": "demo",
+  "description": "A fast development of scaffolding",
   "version": "1.0.0",
   "author": "Philip <pch1024@outlook.com>",
   "license": "MIT",
@@ -12,7 +12,11 @@
     "deploy": "cross-env NODE_ENV=deploy webpack            --progress --hide-modules"
   },
   "dependencies": {
-    "vue": "^2.5.11"
+    "exif-js": "^2.3.0",
+    "highlight.js": "^9.12.0",
+    "marked": "^0.4.0",
+    "vue": "^2.5.11",
+    "vue-router": "^3.0.1"
   },
   "browserslist": [
     "> 1%",
@@ -29,9 +33,10 @@
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
     "html-webpack-plugin": "^3.2.0",
-    "mini-css-extract-plugin": "^0.4.0",
+    "mini-css-extract-plugin": "^0.4.1",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0",
     "vue-loader": "^15.2.0",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^4.8.3",

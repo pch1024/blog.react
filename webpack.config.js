@@ -10,7 +10,12 @@ var entry = path.resolve(__dirname, './src/main.js');
 var output_name = 'js/app.js';
 var output_path = path.resolve(__dirname, './dist');
 var output_public_path = '/';
+var output_css_name = 'css/app.css';
 
+var MECP = new MiniCssExtractPlugin({
+  filename: output_css_name,
+  chunkFilename: "[id].css"
+});
 
 module.exports = {
   entry: entry,
@@ -21,22 +26,17 @@ module.exports = {
   },
   module: {
     rules: [{
-        test: /\.css$/,
+        test: /\.(sa|sc|c)ss$/,
+        exclude: /node_modules/,
         use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader'
-        ],
-      }, {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
+          process.env.NODE_ENV === 'dev' ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader'
         ]
       }, {
         test: /\.vue$/,
         loader: 'vue-loader',
+        exclude: /node_modules/
       },
       {
         test: /\.js$/,
@@ -44,24 +44,9 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        test: /\.(woff2?|eot|ttf|otf|png|jpe?g|gif|svg|mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
         loader: "file-loader",
-        options: {
-          limit: 10000,
-          name: "./media/[name].[ext]?[hash]" // 源文件
-        }
-      },
-      {
-        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-        loader: "file-loader",
-        options: {
-          limit: 10000,
-          name: "./media/[name].[ext]?[hash]" // 源文件
-        }
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: "file-loader",
+        exclude: /node_modules/,
         options: {
           limit: 10000,
           name: "./media/[name].[ext]?[hash]" // 源文件
@@ -76,15 +61,13 @@ module.exports = {
     extensions: ['*', '.js', '.vue', '.json']
   },
   devServer: {
-    historyApiFallback: true,
-    noInfo: true,
-    overlay: true
+    overlay: {
+      warnings: true,
+      errors: true
+    }
   },
   plugins: [
     new VueLoaderPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'css/app.css'
-    }),
     new HtmlWebpackPlugin({
       hash: true,
       inject: true,
@@ -102,36 +85,43 @@ module.exports = {
   ]
 }
 
+
+// 输出到本机生产环境
 if (process.env.NODE_ENV === 'deploy') {
   console.log("部署模式\n")
   module.exports.mode = 'production';
   module.exports.devtool = '#source-map'
   module.exports.plugins = (module.exports.plugins || []).concat([
-
+    MECP
   ]);
 }
+
+// 输出生产环境的源码
 if (process.env.NODE_ENV === 'build') {
   console.log("产品模式\n")
   module.exports.mode = 'production';
   module.exports.devtool = '#source-map'
   module.exports.plugins = (module.exports.plugins || []).concat([
-
+    MECP
   ]);
 }
+
+// 输出开发环境的源码
 if (process.env.NODE_ENV === 'debug') {
   console.log("测试模式\n")
   module.exports.mode = 'development';
   module.exports.devtool = '#eval-source-map'
   module.exports.plugins = (module.exports.plugins || []).concat([
-
+    MECP
   ]);
 }
 
+// 开发测试
 if (process.env.NODE_ENV === 'dev') {
   console.log("开发模式\n")
   module.exports.mode = 'development';
   module.exports.devtool = '#eval-source-map'
   module.exports.plugins = (module.exports.plugins || []).concat([
-
+    new webpack.HotModuleReplacementPlugin(),
   ]);
 }
