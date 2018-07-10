@@ -12,9 +12,12 @@
     "deploy": "cross-env NODE_ENV=deploy webpack            --progress --hide-modules"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "exif-js": "^2.3.0",
+    "fastclick": "^1.0.6",
     "highlight.js": "^9.12.0",
     "marked": "^0.4.0",
+    "mockjs": "^1.0.1-beta3",
     "vue": "^2.5.11",
     "vue-router": "^3.0.1"
   },

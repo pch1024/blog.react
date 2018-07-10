@@ -9,6 +9,10 @@ import home from '../pages/home/index.vue'
 // 2. 定义路由
 const routes = [{
     path: '/',
+    name: 'demo',
+    component: home
+}, {
+    path: '/home',
     name: 'home',
     component: home
 }]
