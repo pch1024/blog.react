@@ -1,27 +1,23 @@
 <template>
-    <div class="logo">
-        <img :src="logo">
-    </div>
+  <div class="logo"></div>
 </template>
 
 <script>
-import { getLogo } from '../../api/index.js'
 export default {
-    data () {
-        return {
-            logo: null
-        }
-    },
-    created () {
-        getLogo().then(res => {
-            console.log(res.data)
-            this.logo = res.data.logo
-        });
-    }
-
-}
+  data() {
+    return {};
+  },
+  created() {}
+};
 </script>
 
 <style lang="scss" scoped>
-@import './index.scss';
+.logo {
+  background-image: url("../../assets/logo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 2em auto;
+  width: 100px;
+  height: 100px;
+}
 </style>
