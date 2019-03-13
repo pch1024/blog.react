@@ -1,12 +1,14 @@
-# Vue 2.5+ 和 webpack 4.8+ 快速开发框架
+# 个人博客前端 React 版
 
-> 主要用于快速搭建开发环境，学习和实践新知识
+> 个人用 webpack 搭建 react 快速开发脚手架
 
 ## 构建指令
 
 ```js
-// 结合浏览器开发调试
-> npm run dev
-// 构建产品级压缩优化代码
-> npm run build
+> npm run dev // 调试开发
+> npm run build // 产品打包
 ```
+
+## 遇到的问题
+
+1. 在使用 Ant-Disign 时，组件模块和样式做到了按需加载，但是 icons 没有做到，经过查阅 [Git Issue](https://github.com/ant-design/ant-design/issues/12011) 发现并没有一个比较完备的解决方案，等待 Ant-Disign 官方回应中。

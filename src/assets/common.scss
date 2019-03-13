@@ -1,0 +1,35 @@
+// reset
+html * {
+  margin: 0;
+  padding: 0;
+  border: none;
+  color: #333333;
+  box-sizing: border-box;
+}
+html body {
+  font-size: 14px;
+  min-width: 320px;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+  background-size: cover;
+}
+
+p {
+  text-align: justify;
+}
+
+// 清除浮动
+.clearBoth {
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+    visibility: hidden;
+    overflow: hidden;
+  }
+  zoom: 1;
+}
+// 检查 autoprefixer
+::placeholder {
+  color: gray;
+}
