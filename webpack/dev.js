@@ -6,6 +6,7 @@ const config = require('./config');
 module.exports = merge(config, {
   mode: 'development',
   devServer: {
+    host: '192.168.0.104',
     historyApiFallback: true, // VUE history
     contentBase: 'dist',
     compress: true,
@@ -21,7 +22,7 @@ module.exports = merge(config, {
           'style-loader', // 将 JS 字符串生成为 style 节点
           'css-loader',
           'postcss-loader',
-          'sass-loader',
+          'sass-loader?modules',
         ],
       },
     ],

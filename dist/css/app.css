@@ -1,17 +1,12 @@
-
-
 html * {
   margin: 0;
   padding: 0;
-  border: none;
-  color: #333333;
   box-sizing: border-box; }
 
 html body {
   font-size: 14px;
   min-width: 320px;
-  font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
-  background-size: cover; }
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif; }
 
 p {
   text-align: justify; }
@@ -34,5 +29,61 @@ p {
 ::placeholder {
   color: gray; }
 
+#app {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding: 30px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: linear-gradient(45deg, #726193 20%, #e37b7c 60%, #ffe4b4); }
 
-/*# sourceMappingURL=app.css.map?e6c4268aeabdf43d60a9*/
+.wrapper {
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-transition: all 200ms;
+  transition: all 200ms; }
+  .wrapper > div {
+    position: relative;
+    -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+            flex-shrink: 0;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+    height: 100%; }
+  .wrapper .header,
+  .wrapper .footer {
+    width: 5rem;
+    background-color: white; }
+  .wrapper .main {
+    width: 10rem;
+    background-color: #726193; }
+
+
+
+
+/*# sourceMappingURL=app.css.map?166aaa8508e3ebd49c09*/
